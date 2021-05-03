@@ -1,0 +1,13 @@
+{
+    "home":[
+
+        {"name": "Lebron James", "desc": "King James! People believe Lebron has proven himself to be the best to ever come out of the NBA."},
+
+        {"name": "Kobe Bryant", "desc": "Black Mamba! Kobe is Jordan 2.0, and he has the stats to kick Lebron off his throne" },
+
+        {"name": "Micheal Jordan", "desc": "Air Jordan! The original G.O.A.T. Micheal Jordan doesn't an explanation of how great he is."}
+
+    ]
+
+
+}
