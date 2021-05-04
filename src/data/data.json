@@ -1,13 +1,46 @@
 {
     "home":[
+        {"header": " Players...Only 1 crown", "subheader": "Compare the statistcal stats between the 3 players","button": "See More"},
+        {"card":[
+                    {"name": "Lebron James", "desc": "King James! People believe Lebron has proven himself to be the best to ever come out of the NBA.","img":"jamesthrone.jpg"},
+                    {"name": "Kobe Bryant", "desc": "Black Mamba! Kobe is Jordan 2.0, and he has the stats to kick Lebron off his throne. Who dares challenge The Black Mamba.","img":"kobestadiumsit.jpg" },
+                    {"name": "Micheal Jordan", "desc": "Air Jordan! The original G.O.A.T. Micheal Jordan doesn't need an explanation of how great he is.","img":"michealthrone.png"}]
+        }
+    ],
 
-        {"name": "Lebron James", "desc": "King James! People believe Lebron has proven himself to be the best to ever come out of the NBA."},
+    "contact": [
 
-        {"name": "Kobe Bryant", "desc": "Black Mamba! Kobe is Jordan 2.0, and he has the stats to kick Lebron off his throne" },
+        {"header":"Contact Me!"},
+        {"img":"me.jpg"},
+        {"social": [
+        {"name":"Email", "link":"pitonmarquise@gmail.com"},
+        {"name":"Linkedin", "link":"https://www.linkedin.com/in/marquisepiton/"},
+        {"name":"Github", "link":"https://github.com/marquisepiton"},
+        {"name":"Twitter","link":"https://twitter.com/MarquisePiton"},
+        {"name":"Kaggle","link":"https://www.kaggle.com/marquisepiton"}
+        ]}
+    ],
 
-        {"name": "Micheal Jordan", "desc": "Air Jordan! The original G.O.A.T. Micheal Jordan doesn't an explanation of how great he is."}
+    "about": [
+        {"header": "Have data back you up!", "subheader": "What is the purpose of this site"},
+        {"paragraph": "There are  people that like to argue about who is the best basketball player of all time, and those people never come to an end with an argument. Usually the 3 players that are on people’s mouths are Micheal Jordan, Kobe Bryant, and Lebron James. What if there was a site that can help argue their case? "},
+        {"paragraph": "The purpose of the site is not to give a final say of who is the best basketball player but to add another resource to the debate for the user."},
+        {"images": [
+
+            {"link":"../img/lebronscreenshot.png"},
+            {"link":"../img/kobescreenshot.png"},
+            {"link":"../img/michealscreenshot.png"}
+
+        ]}
+    ],
+    "players": [
+        {"name": "Lebron James", "height": "6'9", "weight": "250","dob": "12/30/1984","experience": "17th","status":"Active","draft":"2003: Rd 1, Pk 1 (CLE)"},
+        {"name": "Kobe Bryant", "height": "6'6", "weight": "212","dob": "8/23/1978","experience": "20th","status":"Inactive","draft":"2003: Rd 1, Pk 13 (LA)"},
+        {"name": "Micheal Jordan", "height": "6'6", "weight": "216","dob": "2/17/1963","experience": "15th","status":"Inactive","draft":"2003: Rd 1, Pk 3 (CHI)"}
+    ],
+    "Stats":[
+
 
     ]
-
-
+    
 }

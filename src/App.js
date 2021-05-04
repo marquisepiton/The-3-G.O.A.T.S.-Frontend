@@ -7,6 +7,8 @@ import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Contact from "./pages/Contact"
+import About from "./pages/About";
 // import * as mdb from "mdb-ui-kit"; // lib
 
 function App() {
@@ -26,6 +28,16 @@ function App() {
         <Switch>
           <Route path="/profile">
             <Profile profile />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/contact">
+            <Contact Contact />
+          </Route>
+        </Switch>
+        <Switch>
+          <Route path="/about">
+            <About About />
           </Route>
         </Switch>
       </Router>
