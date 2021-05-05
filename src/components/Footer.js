@@ -8,7 +8,7 @@ function Footer() {
     <div>
       <div className="foot">
         <div className="bg-secondary text-white text-center">
-          <div className="container p-3">
+          <div className="container p-2">
             <div className="row">
               <img src={img}></img>
               <div className="col-lg-6 col-md-12 mb-4 mb-md-0">

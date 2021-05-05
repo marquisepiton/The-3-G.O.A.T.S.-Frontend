@@ -1,6 +1,6 @@
 {
     "home":[
-        {"header": " Players...Only 1 crown", "subheader": "Compare the statistcal stats between the 3 players","button": "See More"},
+        {"header": " Home", "subheader": "Compare the statistcal stats between the 3 players","button": "See More"},
         {"card":[
                     {"name": "Lebron James", "desc": "King James! People believe Lebron has proven himself to be the best to ever come out of the NBA.","img":"jamesthrone.jpg"},
                     {"name": "Kobe Bryant", "desc": "Black Mamba! Kobe is Jordan 2.0, and he has the stats to kick Lebron off his throne. Who dares challenge The Black Mamba.","img":"kobestadiumsit.jpg" },
@@ -10,7 +10,7 @@
 
     "contact": [
 
-        {"header":"Contact Me!"},
+        {"header":"Contact Me"},
         {"img":"me.jpg"},
         {"social": [
         {"name":"Email", "link":"pitonmarquise@gmail.com"},
@@ -22,7 +22,7 @@
     ],
 
     "about": [
-        {"header": "Have data back you up!", "subheader": "What is the purpose of this site"},
+        {"header": "About", "subheader": "What is the purpose of this site"},
         {"paragraph": "There are  people that like to argue about who is the best basketball player of all time, and those people never come to an end with an argument. Usually the 3 players that are on people’s mouths are Micheal Jordan, Kobe Bryant, and Lebron James. What if there was a site that can help argue their case? "},
         {"paragraph": "The purpose of the site is not to give a final say of who is the best basketball player but to add another resource to the debate for the user."},
         {"images": [
@@ -34,13 +34,50 @@
         ]}
     ],
     "players": [
+
+        {"header": "Players", "subheader": "Compare and research"},
         {"name": "Lebron James", "height": "6'9", "weight": "250","dob": "12/30/1984","experience": "17th","status":"Active","draft":"2003: Rd 1, Pk 1 (CLE)"},
         {"name": "Kobe Bryant", "height": "6'6", "weight": "212","dob": "8/23/1978","experience": "20th","status":"Inactive","draft":"2003: Rd 1, Pk 13 (LA)"},
         {"name": "Micheal Jordan", "height": "6'6", "weight": "216","dob": "2/17/1963","experience": "15th","status":"Inactive","draft":"2003: Rd 1, Pk 3 (CHI)"}
     ],
-    "Stats":[
+    "columns":[
 
+       
 
-    ]
-    
+      { "Header": "Season", "accessor": "season" },
+      { "Header": "Team", "accessor": "team" },
+      { "Header": "Games Played", "accessor": "gp" },
+      { "Header": "Games Started", "accessor": "gs" },
+      { "Header": "Minutes Per Game", "accessor": "mps" },
+      { "Header": "Field Goals Made", "accessor": "fg" },
+      { "Header": "Field Goals Percentage", "accessor": "fgp" },
+      { "Header": "Three Points Made", "accessor": "tpm" },
+      {
+        "Header": "Three Points Percentage",
+        "accessor": "tpp"
+      },
+      { "Header": "Field Throw Made", "accessor": "ftm" },
+      {
+        "Header": "Field Throws Percentage",
+        "accessor": "ftp"
+      },
+      { "Header": "Offensive Rebounds", "accessor": "of" },
+      { "Header": "Defensive Rebounds", "accessor": "dr" },
+      { "Header": " Rebounds", "accessor": "reb" },
+      { "Header": "Assist", "accessor": "ast" },
+      { "Header": "Blocks", "accessor": "blk" },
+      { "Header": "Steals", "accessor": "stl" },
+      { "Header": "Fouls per game", "accessor": "fpg" },
+      { "Header": "Turnovers per game", "accessor": "tpg" },
+      {
+        "Header": "Points Per Game",
+        "accessor": "ppg"
+      },
+      {
+        "Header": "ID",
+        "accessor": "player"
+      }
+ 
+
+    ]    
 }

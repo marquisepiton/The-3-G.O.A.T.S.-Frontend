@@ -8,9 +8,7 @@ function Contact() {
 
     const links = Data.contact[2].social.map((data, index) => {
         return (
-
             <li key={index}>{data.link}</li>
-          
         );
       });
   return (
@@ -28,9 +26,6 @@ function Contact() {
       <ul>
          {links}
       </ul>
-
-      
-
       <Footer />
     </div>
   );

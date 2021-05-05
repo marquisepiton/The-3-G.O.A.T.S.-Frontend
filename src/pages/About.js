@@ -16,9 +16,6 @@ function About() {
         <img src={Data.about[3].images[0].link} class="rounded float-start" alt="..."></img>
         <img src={Data.about[3].images[1].link} class="rounded mx-auto d-block" alt="..."></img>
         <img src={Data.about[3].images[2].link}class="rounded float-end" alt="..."></img>
-
-
-        
         <Footer/>
         </div>
     );

@@ -1,0 +1,35 @@
+export const columns = [
+  { Header: "Season", accessor: "season" },
+  { Header: "Team", accessor: "team" },
+  { Header: "Games Played", accessor: "gp" },
+  { Header: "Games Started", accessor: "gs" },
+  { Header: "Minutes Per Game", accessor: "mps" },
+  { Header: "Field Goals Made", accessor: "fg" },
+  { Header: "Field Goals Percentage", accessor: "fgp" },
+  { Header: "Three Points Made", accessor: "tpm" },
+  {
+    Header: "Three Points Percentage",
+    accessor: "tpp",
+  },
+  { Header: "Field Throw Made", accessor: "ftm" },
+  {
+    Header: "Field Throws Percentage",
+    accessor: "ftp",
+  },
+  { Header: "Offensive Rebounds", accessor: "of" },
+  { Header: "Defensive Rebounds", accessor: "dr" },
+  { Header: " Rebounds", accessor: "reb" },
+  { Header: "Assist", accessor: "ast" },
+  { Header: "Blocks", accessor: "blk" },
+  { Header: "Steals", accessor: "stl" },
+  { Header: "Fouls per game", accessor: "fpg" },
+  { Header: "Turnovers per game", accessor: "tpg" },
+  {
+    Header: "Points Per Game",
+    accessor: "ppg",
+  },
+  {
+    Header: "ID",
+    accessor: "player",
+  },
+];
