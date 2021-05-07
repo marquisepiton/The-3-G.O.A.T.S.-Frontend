@@ -8,15 +8,10 @@ import Card from "../components/Card";
 
 // Home Page 
 function Home() {
-
-    
   return (
     <div>
       <Nav />
       <Header data={Data.home}/>
-      {/* <a className="btn btn-primary" href="" role="button">
-           See More 
-          </a>  */}
       <Card data={Data.home}/>
       <Footer />
     </div>

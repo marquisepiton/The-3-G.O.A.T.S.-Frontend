@@ -1,10 +1,10 @@
 {
     "home":[
-        {"header": " Home", "subheader": "Compare the statistcal stats between the 3 players","button": "See More"},
+        {"header": " Home", "subheader": "Watch their highlights and witness greatness","button": "See More"},
         {"card":[
-                    {"name": "Lebron James", "desc": "King James! People believe Lebron has proven himself to be the best to ever come out of the NBA.","img":"jamesthrone.jpg"},
-                    {"name": "Kobe Bryant", "desc": "Black Mamba! Kobe is Jordan 2.0, and he has the stats to kick Lebron off his throne. Who dares challenge The Black Mamba.","img":"kobestadiumsit.jpg" },
-                    {"name": "Micheal Jordan", "desc": "Air Jordan! The original G.O.A.T. Micheal Jordan doesn't need an explanation of how great he is.","img":"michealthrone.png"}]
+                    {"name": "Lebron James", "desc": "King James! People believe Lebron has proven himself to be the best to ever come out of the NBA.","img":"jamesthrone.jpg", "link":"https://www.youtube.com/watch?v=ka9YYYWMyR0"},
+                    {"name": "Kobe Bryant", "desc": "Black Mamba! Kobe is Jordan 2.0, and he has the stats to kick Lebron off his throne.","img":"kobestadiumsit.jpg", "link": "https://www.youtube.com/watch?v=OTTWedyp37o"},
+                    {"name": "Micheal Jordan", "desc": "Air Jordan! The original G.O.A.T. Micheal Jordan doesn't need an explanation of how great he is.","img":"michealthrone.png" ,"link": "https://www.youtube.com/watch?v=EGgnEIX5f4E"}]
         }
     ],
 

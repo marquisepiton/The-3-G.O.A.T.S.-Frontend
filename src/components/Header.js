@@ -5,7 +5,7 @@ import "./Header.css"
 function Header(props) {
     const location = useLocation();
   return (
-    <div className="container">
+    <div >
       <header className={location.pathname.substring(1)}>
         <div className="p-5 text-center">
           <h1 data={props.data} className="mb-3">{props.data[0].header}</h1>

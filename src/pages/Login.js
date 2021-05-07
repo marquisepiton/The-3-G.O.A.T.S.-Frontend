@@ -1,15 +1,50 @@
 import React, { useState, useEffect } from "react";
-import "./Login.css";
+import "./Login.scss";
 // import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import Home from "./Home";
 import axios from "axios";
+import "mdb-ui-kit";
+import Nav from "../components/Nav";
 
 function Login() {
+
+  //const location = useLocation();
   // ================================ useState===================================================
   const [formData, setFormData] = useState({});
+  const [signInData, setSignInData] = useState({});
   const [teamData, setTeamData] = useState([]);
   const [playerData, setPlayerData] = useState([]);
+
   //================================ Axios calls ==============================================
+  
+  const handleLogin = (e) => {
+    setSignInData((previousState) =>({
+      ...previousState,
+      [e.target.name]: e.target.value,
+    }))
+    
+  }
+  const handleLoginsubmit = (e) => {
+    const apiUrl =
+      
+    e.preventDefault();
+    axios
+      .post(apiUrl, formData)
+      .then((response) => {
+        console.log(response);
+        // SAVE TOKEN
+        localStorage.setItem("token", formData);
+
+        // localStorage.setItem("itemName", value);
+        // localStorage.getItem("itemName");
+
+        // REDIRECT TO DASHBOARD (USEHISTORY)
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+
+  
   const handleForm = (e) => {
     setFormData((previousState) => ({
       ...previousState,
@@ -25,11 +60,19 @@ function Login() {
       .post(apiUrl, formData)
       .then((response) => {
         console.log(response);
+        // SAVE TOKEN
+        localStorage.setItem("token", formData);
+
+        // localStorage.setItem("itemName", value);
+        // localStorage.getItem("itemName");
+
+        // REDIRECT TO DASHBOARD (USEHISTORY)
       })
       .catch((error) => {
         console.log(error);
       });
   };
+
   // Extract team data
   const axiosGetTeam = () => {
     const apiUrl =
@@ -49,6 +92,7 @@ function Login() {
   // ================================ useEffect==================================================
   useEffect(axiosGetPlayer, []);
   useEffect(axiosGetTeam, []);
+  //useEffect ()
   // ====================================== MAPPING==============================================
   // Map the team data into the scroll component
   const teams = teamData.map((data, index) => {
@@ -66,230 +110,224 @@ function Login() {
       </option>
     );
   });
+  // =================================================================================================
   return (
     <div className="container">
-      <div className="card">
-        <div className="row">
-          <div className="col-md"></div>
-          <div className="col-md">
-            <ul
-              className="nav nav-pills nav-justified mb-3"
-              id="ex1"
-              role="tablist"
+      <Nav />
+      <div className="yo">
+        <div className="card">
+          <ul className="nav  nav-justified mb-3 " id="ex1" role="tablist">
+            <li className="nav-item" role="presentation">
+              <a
+                className="nav-link active"
+                id="tab-login"
+                data-mdb-toggle="pill"
+                href="#pills-login"
+                role="tab"
+                aria-controls="pills-login"
+                aria-selected="true"
+              >
+                Login
+              </a>
+            </li>
+            <li className="nav-item" role="presentation">
+              <a
+                className="nav-link"
+                id="tab-register"
+                data-mdb-toggle="pill"
+                href="#pills-register"
+                role="tab"
+                aria-controls="pills-register"
+                aria-selected="false"
+              >
+                Register
+              </a>
+            </li>
+          </ul>
+          <div className="tab-content">
+            <div
+              className="tab-pane fade show active "
+              id="pills-login"
+              role="tabpanel"
+              aria-labelledby="tab-login"
             >
-              <li className="nav-item" role="presentation">
-                <a
-                  className="nav-link active"
-                  id="tab-login"
-                  data-mdb-toggle="pill"
-                  href="#pills-login"
-                  role="tab"
-                  aria-controls="pills-login"
-                  aria-selected="true"
-                >
-                  Login
-                </a>
-              </li>
-              <li className="nav-item" role="presentation">
-                <a
-                  className="nav-link"
-                  id="tab-register"
-                  data-mdb-toggle="pill"
-                  href="#pills-register"
-                  role="tab"
-                  aria-controls="pills-register"
-                  aria-selected="false"
-                >
-                  Register
-                </a>
-              </li>
-            </ul>
-
-            <div className="tab-content">
-              <div
-                className="tab-pane fade show active"
-                id="pills-login"
-                role="tabpanel"
-                aria-labelledby="tab-login"
+              <form>
+                <h3>Login</h3>
+                <div className="mb-3">
+                  <label for="InputEmail1" className="form-label">
+                    Email address
+                  </label>
+                  <input
+                    type="email"
+                    className="form-control"
+                    id="InputEmail1"
+                    aria-describedby="emailHelp"
+                    onChange={handleLogin}
+                  ></input>
+                  <div id="emailHelp" className="form-text">
+                    We'll never share your email with anyone else.
+                  </div>
+                </div>
+                <div className="mb-3">
+                  <label for="InputPassword1" className="form-label">
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    className="form-control"
+                    id="InputPassword1"
+                    onChange={handleLogin}
+                  ></input>
+                </div>
+                <div className="mb-3 form-check">
+                  <input
+                    type="checkbox"
+                    className="form-check-input"
+                    id="exampleCheck1"
+                  ></input>
+                  <label className="form-check-label" for="exampleCheck1">
+                    Remember Me
+                  </label>
+                </div>
+                <button type="submit" className="btn btn-primary">
+                  Submit
+                </button>
+              </form>
+            </div>
+            <div
+              className="tab-pane fade"
+              id="pills-register"
+              role="tabpanel"
+              aria-labelledby="tab-register"
+            >
+              <form
+                className="row g-3 needs-validation"
+                novalidate
+                onSubmit={handleSubmit}
               >
-                <form>
-                  <div className="form-outline mb-4">
-                    <input
-                      type="email"
-                      id="loginName"
-                      className="form-control"
-                    />
-                    <label className="form-label" for="loginName">
-                      Username
-                    </label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="loginPassword"
-                      className="form-control"
-                    />
-                    <label className="form-label" for="loginPassword">
-                      Password
-                    </label>
-                  </div>
-
-                  <div className="row mb-4">
-                    <div className="col-md-6 d-flex justify-content-center">
-                      <div className="form-check mb-3 mb-md-0">
-                        <input
-                          className="form-check-input"
-                          type="checkbox"
-                          value=""
-                          id="loginCheck"
-                          checked
-                        />
-                        <label className="form-check-label" for="loginCheck">
-                          {" "}
-                          Remember me{" "}
-                        </label>
-                      </div>
-                    </div>
-
-                    <div className="col-md-6 d-flex justify-content-center">
-                      <a href="#!">Forgot password?</a>
-                    </div>
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-block mb-4"
+                <h3>Register</h3>
+                <div className="col-md-4">
+                  <label for="registerUsername" className="form-label" name>
+                    Username
+                  </label>
+                  <input
+                    type="text"
+                    id="registerUsername"
+                    className="form-control"
+                    onChange={handleForm}
+                    name="username"
+                    required
+                  ></input>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
+                <div className="col-md-4">
+                  <label
+                    for="registerEmail"
+                    className="form-label"
+                    onChange={handleForm}
+                    value={formData || ""}
                   >
-                    Sign in
-                  </button>
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="registerEmail"
+                    className="form-control"
+                    onChange={handleForm}
+                    className="form-control"
+                    required
+                    name="email"
+                  ></input>
+                  <div className="valid-feedback">Looks good!</div>
+                </div>
 
-                  <div className="text-center">
-                    <p>
-                      Not a member? <a href="#!">Register</a>
-                    </p>
+                <div className="col-md-4">
+                  <label
+                    className="form-label"
+                    for="registerPassword"
+                    value={formData || ""}
+                  >
+                    Password
+                  </label>
+                  <input
+                    type="password"
+                    id="registerPassword"
+                    className="form-control"
+                    onChange={handleForm}
+                    required
+                    name="password"
+                  />
+                </div>
+
+                <div className="col-md-3">
+                  <label for="validationCustom04" className="form-label">
+                    Team
+                  </label>
+                  <select
+                    className="form-select"
+                    id="validationCustom04"
+                    onChange={handleForm}
+                    name="favoriteteam"
+                    className="select"
+                    required
+                  >
+                    <option selected disabled value="">
+                      Choose...
+                    </option>
+                    <option>...</option>
+                    {teams}
+                  </select>
+                  <div className="invalid-feedback">
+                    Please select a Favorite Team
                   </div>
-                </form>
-              </div>
-              <div
-                className="tab-pane fade"
-                id="pills-register"
-                role="tabpanel"
-                aria-labelledby="tab-register"
-              >
-                <form onSubmit={handleSubmit}>
-                  <div className="form-outline mb-4">
+                </div>
+                <div className="col-md-3">
+                  <label for="validationCustom04" className="form-label">
+                    Player
+                  </label>
+                  <select
+                    className="form-select"
+                    id="validationCustom04"
+                    onChange={handleForm}
+                    name="fanof"
+                    className="select"
+                    required
+                  >
+                    <option selected disabled value="">
+                      Choose...
+                    </option>
+                    <option>...</option>
+                    {mapPlayers}
+                  </select>
+                  <div className="invalid-feedback">
+                    Please select a Favorite Player
+                  </div>
+                </div>
+                <div className="col-12">
+                  <div className="form-check">
                     <input
-                      type="text"
-                      id="registerUsername"
-                      className="form-control"
-                      onChange={handleForm}
-                    />
-                    <label className="form-label" for="registerUsername">
-                      Username
-                    </label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input
-                      type="email"
-                      id="registerEmail"
-                      className="form-control"
-                      onChange={handleForm}
-                      value={FormData || ""}
-                    />
-                    <label className="form-label" for="registerEmail">
-                      Email
-                    </label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="registerPassword"
-                      className="form-control"
-                    />
-                    <label
-                      className="form-label"
-                      for="registerPassword"
-                      value={FormData || ""}
-                    >
-                      Password
-                    </label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <input
-                      type="password"
-                      id="registerRepeatPassword"
-                      className="form-control"
-                    />
-                    <label className="form-label" for="registerRepeatPassword">
-                      Repeat password
-                    </label>
-                  </div>
-
-                  <div className="form-outline mb-4">
-                    <div className="col-12">
-                      <label
-                        className="visually-hidden"
-                        for="inlineFormSelectPref"
-                      >
-                        Favorite Team
-                      </label>
-                      <select
-                        onChange={handleForm}
-                        name="favoriteteam"
-                        className="select"
-                      >
-                        <option>Select one</option>
-                        {teams}
-                      </select>
-                    </div>
-                  </div>
-                  <div className="form-outline mb-4">
-                    <div className="col-12">
-                      <label
-                        className="visually-hidden"
-                        for="inlineFormSelectPref"
-                      >
-                        Pick from the 3
-                      </label>
-                      <select
-                        onChange={handleForm}
-                        name="fanof"
-                        className="select"
-                      >
-                        <option>Select one</option>
-                        {mapPlayers}
-                      </select>
-                    </div>
-                  </div>
-
-                  <div className="form-check d-flex justify-content-center mb-4">
-                    <input
-                      className="form-check-input me-2"
+                      className="form-check-input"
                       type="checkbox"
                       value=""
-                      id="registerCheck"
-                      checked
-                      aria-describedby="registerCheckHelpText"
-                    />
-                    <label className="form-check-label" for="registerCheck">
-                      I have read and agree to the terms
+                      id="invalidCheck"
+                      required
+                    ></input>
+                    <label className="form-check-label" for="invalidCheck">
+                      Agree to terms and conditions
                     </label>
+                    <div className="invalid-feedback">
+                      You must agree before submitting.
+                    </div>
                   </div>
-                  <button
-                    type="submit"
-                    className="btn btn-primary btn-block mb-3"
-                  >
-                    Sign in
+                </div>
+                <div className="col-12">
+                  <button className="btn btn-primary" type="submit">
+                    Submit form
                   </button>
-                </form>
-              </div>
+                </div>
+              </form>
             </div>
           </div>
-          <div className="col-md"></div>
         </div>
       </div>
     </div>

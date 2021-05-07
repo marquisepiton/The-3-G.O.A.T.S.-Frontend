@@ -17,8 +17,8 @@ function Card(props) {
               {data.name}
             </h5>
             <p className="card-text">{data.desc}</p>
-            <a href="#" className="btn btn-primary">
-              Learn More
+            <a href={data.link} target="_blank" >
+              Watch
             </a>
           </div>
         </div>

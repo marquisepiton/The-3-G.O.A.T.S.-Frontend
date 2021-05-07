@@ -2,18 +2,17 @@ import "./App.css";
 import Home from "./pages/Home";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Contact from "./pages/Contact"
 import About from "./pages/About";
-import Player from "./pages/Players";
+import Stats from "./pages/Stats";
 import Discussions from "./pages/Discussions";
 // import * as mdb from "mdb-ui-kit"; // lib
 
 function App() {
   return (
-    <div>
+    <div className="container">
       <Router>
         <Switch>
           <Route path="/login">
@@ -26,8 +25,8 @@ function App() {
           </Route>
         </Switch>
         <Switch>
-          <Route path="/players">
-            <Player players />
+          <Route path="/stats">
+            <Stats stats />
           </Route>
         </Switch>
         <Switch>
