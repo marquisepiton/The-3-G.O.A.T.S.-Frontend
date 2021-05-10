@@ -8,12 +8,21 @@ import Contact from "./pages/Contact"
 import About from "./pages/About";
 import Stats from "./pages/Stats";
 import Discussions from "./pages/Discussions";
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 // import * as mdb from "mdb-ui-kit"; // lib
 
 function App() {
   return (
-    <div className="container">
+<>
+
+
+   
+    
+    
       <Router>
+      <Nav />
+
         <Switch>
           <Route path="/login">
             <Login login />
@@ -49,8 +58,9 @@ function App() {
             <About About />
           </Route>
         </Switch>
+        <Footer/>
       </Router>
-    </div>
+    </>
   );
 }
 

@@ -10,10 +10,10 @@ import Card from "../components/Card";
 function Home() {
   return (
     <div>
-      <Nav />
+      
       <Header data={Data.home}/>
       <Card data={Data.home}/>
-      <Footer />
+     
     </div>
   );
 }

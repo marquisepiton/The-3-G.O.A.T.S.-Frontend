@@ -35,7 +35,7 @@
     ],
     "players": [
 
-        {"header": "Players", "subheader": "Compare and research"},
+        {"header": "Stats", "subheader": "Compare and research"},
         {"name": "Lebron James", "height": "6'9", "weight": "250","dob": "12/30/1984","experience": "17th","status":"Active","draft":"2003: Rd 1, Pk 1 (CLE)"},
         {"name": "Kobe Bryant", "height": "6'6", "weight": "212","dob": "8/23/1978","experience": "20th","status":"Inactive","draft":"2003: Rd 1, Pk 13 (LA)"},
         {"name": "Micheal Jordan", "height": "6'6", "weight": "216","dob": "2/17/1963","experience": "15th","status":"Inactive","draft":"2003: Rd 1, Pk 3 (CHI)"}
@@ -77,7 +77,15 @@
         "Header": "ID",
         "accessor": "player"
       }
+     
  
 
-    ]    
+    ]    ,
+    "discussions": [
+
+      {"header": "Discussions", "subheader": "Share your opinions"}
+
+
+
+    ]
 }

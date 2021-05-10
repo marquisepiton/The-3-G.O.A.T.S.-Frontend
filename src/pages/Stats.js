@@ -8,14 +8,15 @@ import {
   useTable,
   useResizeColumns,
   useFlexLayout,
-  useRowSelect,
+  usePagination,
   useBlockLayout,
 } from "react-table";
-import { Bar, Line, Pie, Doughnut } from "react-chartjs-2";
+import { Bar, Line, Pie, Doughnut,} from "react-chartjs-2";
 import axios from "axios";
-import "./Players.scss";
+import "./Stats.scss";
 import Chart from "chart.js/auto";
 import { render } from "@testing-library/react";
+
 
 function Stats() {
   // ================================ useState===================================================
@@ -71,6 +72,7 @@ function Stats() {
     datasets: [
       {
         label: col,
+        
         data: stats,
         backgroundColor: [
           "rgba(54, 162, 235, 0.2)",
@@ -87,15 +89,52 @@ function Stats() {
     ],
   };
 
+
+
+  const IndeterminateCheckbox = React.forwardRef(
+    ({ indeterminate, ...rest }, ref) => {
+      const defaultRef = React.useRef()
+      const resolvedRef = ref || defaultRef
+  
+      React.useEffect(() => {
+        resolvedRef.current.indeterminate = indeterminate
+      }, [resolvedRef, indeterminate])
+  
+      return <input type="checkbox" ref={resolvedRef} {...rest} />
+    }
+  )
+
   const memoedColumns = React.useMemo(() => columns);
   const {
     getTableProps,
     getTableBodyProps,
     headerGroups,
-    useResizeColumns,
-    rows,
+    allColumns,
+    getToggleHideAllColumnsProps,
+    
     prepareRow,
-  } = useTable({ columns: memoedColumns, data: playerStats });
+    page,
+    canPreviousPage,
+    canNextPage,
+    pageOptions,
+    pageCount,
+    gotoPage,
+    nextPage,
+    previousPage,
+    setPageSize,
+    state: { pageIndex, pageSize },
+  } = useTable(
+  { 
+    columns: memoedColumns, 
+    data: playerStats 
+  },
+  useResizeColumns,
+  // useFlexLayout,
+  // useBlockLayout,
+  usePagination,
+  );
+  
+
 
   // ================================ useEffect==================================================
   useEffect(axiosGetAllPlayerRegStats, []);
@@ -104,79 +143,171 @@ function Stats() {
 
   return (
     <div>
-      
-        <Nav />
-        <Header data={Data.players} />
+     
+      <Header data={Data.players} />
 
-        <Bar data={data} width={100} height={50} />
 
-        <div className="text-center">
-          <div className="filter-bar">
-            <li onClick={axiosGetAllPlayerRegStats}>All</li>
-            <li value="1" onClick={() => handleClick(1)}>
-              Lebron
-            </li>
-            <li value="2" onClick={() => handleClick(2)}>
-              Kobe
-            </li>
-            <li value="2" onClick={() => handleClick(3)}>
-              Micheal
-            </li>
-          </div>
+      <div class="container">
+  <div class="row">
+    <div class="col">
+    <Bar data={data} width={100} height={50} />
+    </div>
+    <div class="col">
+    <Pie data={data} width={100} height={50} />
+    </div>
+    <div class="col">
+    <Line data={data} width={100} height={50} />
+    </div>
+  </div>
+</div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+    
+    </div>
+    <div class="col">
+    <div className="text-center">
+        <div className="filter-bar">
+          <li onClick={axiosGetAllPlayerRegStats}>All</li>
+          <li value="1" onClick={() => handleClick(1)}>
+            Lebron
+          </li>
+          <li value="2" onClick={() => handleClick(2)}>
+            Kobe
+          </li>
+          <li value="2" onClick={() => handleClick(3)}>
+            Micheal
+          </li>
         </div>
-        <table ClassName="table-board" {...getTableProps()}>
-          <thead>
-            {headerGroups.map((headerGroup) => (
-              <tr {...headerGroup.getHeaderGroupProps()}>
-                {headerGroup.headers.map((column) => {
-                  const accessor = columns.find(
-                    (c) => c.Header === column.Header
-                  ).accessor;
+      </div>
+
+      <div>
+        <div className='toggle'>
+          <IndeterminateCheckbox {...getToggleHideAllColumnsProps()} /> Toggle
+          All
+        </div>
+        {allColumns.map(column => (
+          <div   className='toggle'  key={column.id}>
+            <label>
+              <input  type="checkbox" {...column.getToggleHiddenProps()} />{' '}
+              {column.id}
+            </label>
+          </div>
+        ))}
+        <br />
+      </div>
+      <p>Click on stats to render information into the chart</p>
+      <table ClassName="table-board" {...getTableProps()}>
+
+        <thead>
+          {headerGroups.map((headerGroup) => (
+            <tr {...headerGroup.getHeaderGroupProps()}>
+              {headerGroup.headers.map((column) => {
+                const accessor = columns.find((c) => c.Header === column.Header)
+                  .accessor;
+                return (
+                  <th
+                    {...column.getHeaderProps()}
+                    style={{
+                      borderBottom: "solid 3px red",
+                      background: "aliceblue",
+                      color: "black",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    <button onClick={() => handleStats(accessor, column)}>
+                      {column.render("Header")}
+                    </button>
+                  </th>
+                );
+              })}
+            </tr>
+          ))}
+        </thead>
+        <tbody {...getTableBodyProps()}>
+          {page.map((row) => {
+            prepareRow(row);
+            return (
+              <tr {...row.getRowProps()}>
+                {row.cells.map((cell) => {
                   return (
-                    <th
-                      {...column.getHeaderProps()}
+                    <td
+                      {...cell.getCellProps()}
                       style={{
-                        borderBottom: "solid 3px red",
-                        background: "aliceblue",
-                        color: "black",
-                        fontWeight: "bold",
+                        padding: "10px",
+                        border: "solid 1px gray",
+                        background: "papayawhip",
                       }}
                     >
-                      <button onClick={() => handleStats(accessor, column)}>
-                        {column.render("Header")}
-                      </button>
-                    </th>
+                      {cell.render("Cell")}
+                    </td>
                   );
                 })}
               </tr>
-            ))}
-          </thead>
-          <tbody {...getTableBodyProps()}>
-            {rows.map((row) => {
-              prepareRow(row);
-              return (
-                <tr {...row.getRowProps()}>
-                  {row.cells.map((cell) => {
-                    return (
-                      <td
-                        {...cell.getCellProps()}
-                        style={{
-                          padding: "10px",
-                          border: "solid 1px gray",
-                          background: "papayawhip",
-                        }}
-                      >
-                        {cell.render("Cell")}
-                      </td>
-                    );
-                  })}
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+            );
+          })}
+        </tbody>
+      </table>
+      <div className="pagination">
+        <button onClick={() => gotoPage(0)} disabled={!canPreviousPage}>
+          {'<<'}
+        </button>{' '}
+        <button onClick={() => previousPage()} disabled={!canPreviousPage}>
+          {'<'}
+        </button>{' '}
+        <button onClick={() => nextPage()} disabled={!canNextPage}>
+          {'>'}
+        </button>{' '}
+        <button onClick={() => gotoPage(pageCount - 1)} disabled={!canNextPage}>
+          {'>>'}
+        </button>{' '}
+        <span>
+          Page{' '}
+          <strong>
+            {pageIndex + 1} of {pageOptions.length}
+          </strong>{' '}
+        </span>
+        <span>
+          | Go to page:{' '}
+          <input
+            type="number"
+            defaultValue={pageIndex + 1}
+            onChange={e => {
+              const page = e.target.value ? Number(e.target.value) - 1 : 0
+              gotoPage(page)
+            }}
+            style={{ width: '100px' }}
+          />
+        </span>{' '}
+        <select
+          value={pageSize}
+          onChange={e => {
+            setPageSize(Number(e.target.value))
+          }}
+        >
+          {[10, 20, 30, 40, 50].map(pageSize => (
+            <option key={pageSize} value={pageSize}>
+              Show {pageSize}
+            </option>
+          ))}
+        </select>
       </div>
-   
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+</div>
+
+      
+      
+      
+      
+      {/* Be able to filter between players */}
+    
+    </div>
   );
 }
 
