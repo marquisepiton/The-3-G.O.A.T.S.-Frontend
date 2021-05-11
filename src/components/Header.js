@@ -1,11 +1,12 @@
 import React from "react";
 import {useLocation} from "react-router-dom";
-import "./Header.css"
+import "./Header.css";
 
 function Header(props) {
     const location = useLocation();
   return (
-    <div >
+    <>
+    <div className='head'>
       <header className={location.pathname.substring(1)}>
         <div className="p-5 text-center">
           <h1 data={props.data} className="mb-3">{props.data[0].header}</h1>
@@ -13,6 +14,8 @@ function Header(props) {
         </div>
       </header>
     </div> 
+
+    </>
   );
 }
 

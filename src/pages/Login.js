@@ -112,7 +112,7 @@ function Login() {
         <div class="col"></div>
         <div class="col">
         {/* <img src='../img/logo.png'></img> */}
-          <div className="card">
+          <div className="login-card">
             <ul className="nav  nav-justified mb-3 " id="ex1" role="tablist">
               <li className="nav-item" role="presentation">
                 <a

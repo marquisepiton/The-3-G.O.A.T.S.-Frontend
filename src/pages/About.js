@@ -11,8 +11,25 @@ function About() {
         <div>
         
         <Header data={Data.about}/>
-        <p>{Data.about[1].paragraph}</p>
+        
+
+
+        <div class="container">
+  <div class="row">
+    <div class="col">
+     
+    </div>
+    <div class="col">
+
+    <img src="../img/logo.png"/>
+    <p>{Data.about[1].paragraph}</p>
         <p>{Data.about[2].paragraph}</p>
+    </div>
+    <div class="col">
+      
+    </div>
+  </div>
+</div>
        
         </div>
     );

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Data from "../data/data.json";
 import Header from "../components/Header";
 import axios from "axios";
+import "./Discussions.scss";
 
 function Discussions() {
   const [formData, setFormData] = useState({});
@@ -11,41 +12,28 @@ function Discussions() {
     const apiUrl =
       "https://goat-pitonmarquise819185.codeanyapp.com/api/discussions/create";
     e.preventDefault();
-    axios.post(apiUrl,formData).then((response) => {
-
+    axios
+      .post(apiUrl, formData)
+      .then((response) => {
         console.log(response);
-
-
-    })
-    .catch((error) => {
-      console.log(error);
-
-
-      
-    });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
-  const axiosGetThread = (accept, content, accessControlAllowOrigin, authorization) => {
-      let token = "";
-      let headers = {
-        "Accept": "application/json",
-        "Content-Type": "application/json; charset=utf-8",
-        "Access-Control-Allow-Origin": "*",
-        "Authorization": `Bearer ${token}`
-      };
-    let data = {};
+  const axiosGetThread = () => {
     const apiUrl =
       "https://goat-pitonmarquise819185.codeanyapp.com/api/discussions";
-    axios({
-        method:"get",
-        apiUrl,
-        data,
-        headers,
-        })
-        .then(function (response) {
-            console.log(response.data);
-      setThreadData(response);
-    });
+    axios
+      .get(apiUrl)
+      .then(function (response) {
+        console.log(response.data);
+        setThreadData(response.data);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
 
   console.log(formData);
@@ -169,12 +157,12 @@ function Discussions() {
                 <div className="modal-footer">
                   <button
                     type="button"
-                    className="btn btn-secondary"
+                    className=" btn-secondary"
                     data-bs-dismiss="modal"
                   >
                     Cancel
                   </button>{" "}
-                  <button type="button" className="btn btn-primary">
+                  <button className="discussion-button" type="submit" name="submit" id="submit" >
                     Submit
                   </button>
                 </div>

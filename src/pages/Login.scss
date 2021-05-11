@@ -1,10 +1,52 @@
-.card{
-  margin-top: 200px;
-  
-  width: 500rem;
+.login-card{
+  margin-top: 40px;
+  margin-bottom: 200px;
+
+  button  {
+    border:none;
+    text-align: center;
+    list-style: none;
+    color: black;
+    font-family: sans-serif;
+    font-weight: bold;
+    padding: 12px 16px;
+    margin: 0 8px;
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+    &::before {
+        content: " ";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+        transition: 0.2s;
+        border-radius: 25px;
+    }
+    &:hover {
+        &::before {
+            background: linear-gradient(to bottom, #e8edec, #d2d1d3);
+            box-shadow: 0px 3px 20px 0px black;
+            transform: scale(1.2);
+        }
+        color: white;
+    }
 }
-.container{
-    // background-image: url("../img/sketch.jpg") no-repeat fixed center;
 
 }
+.row{
+margin-bottom: 0px;
+}
+.chart{
+color: white
+
+}
+ 
+
+
+
+
+
 

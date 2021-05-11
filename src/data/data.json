@@ -23,8 +23,8 @@
 
     "about": [
         {"header": "About", "subheader": "What is the purpose of this site"},
-        {"paragraph": "There are  people that like to argue about who is the best basketball player of all time, and those people never come to an end with an argument. Usually the 3 players that are on people’s mouths are Micheal Jordan, Kobe Bryant, and Lebron James. What if there was a site that can help argue their case? "},
-        {"paragraph": "The purpose of the site is not to give a final say of who is the best basketball player but to add another resource to the debate for the user."},
+        {"paragraph": "  Some people like to argue about who is the best basketball player of all time, and those people never come to an end with an argument. Usually, the three players on people’s mouths are Micheal Jordan, Kobe Bryant, and Lebron James. What if there was a site that can help argue their case? "},
+        {"paragraph": "The purpose of the site is not to give a final say of who is the best basketball player but to add another resource to fuel the debate."},
         {"images": [
 
             {"link":"../img/lebronscreenshot.png"},
