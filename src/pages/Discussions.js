@@ -5,6 +5,7 @@ import axios from "axios";
 import "./Discussions.scss";
 
 function Discussions() {
+  const event = new Date();
   const [formData, setFormData] = useState({});
   const [threadData, setThreadData] = useState([]);
 
@@ -52,22 +53,42 @@ function Discussions() {
 
   const mapThread = threadData.map((data, index) => {
     return (
-      <div>
-        <a
-          key={index}
-          href="#"
-          class="list-group-item list-group-item-action active"
-          aria-current="true"
-        >
-          <a />
-          <div class="d-flex w-100 justify-content-between">
-            <h5 class="mb-1">{data.title}</h5>
-            <small>3 days ago</small>
+
+        <>
+      <div key={index} href="#" class="card-body py-3">
+        <div class="row no-gutters align-items-center">
+          <div class="col">
+            {" "}
+            <div style={{ color: "black" }} class="text-big" data-abc="true">
+              {data.title}
+            </div>
+            <div class="text-muted small mt-1">
+              Created on: {data.created_at} &nbsp;·&nbsp;{" "}
+              <a class="text-muted" data-abc="true">
+                Jimmy
+              </a>
+            </div>
           </div>
-          <p class="mb-1">{data.content}</p>
-          <small>...</small>
-        </a>
+
+          <div class="d-none d-md-block col-4">
+            <div class="row no-gutters align-items-center">
+              <div class="col-4">12</div>
+              <div class="media col-8 align-items-center">
+                {" "}
+                <img src="../" alt="" class="d-block ui-w-30 rounded-circle" />
+                <div class="media-body flex-truncate ml-2">
+                  <div class="line-height-1 text-truncate">1 day ago</div>{" "}
+                  <a class="text-muted small text-truncate" data-abc="true">
+                    by Marquise piton
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+          <hr class="m-0"/>
+      </>
     );
   });
 
@@ -77,12 +98,25 @@ function Discussions() {
 
       <button
         type="button"
-        className="btn btn-primary"
+        className="thread-button"
         data-bs-toggle="modal"
         data-bs-target="#exampleModal"
       >
         New Thread
       </button>
+
+      <div class="card-header pl-0 pr-0">
+        <div class="row no-gutters w-100 align-items-center">
+          <div class="col ml-3">Topics</div>
+          <div class="col-4 text-muted">
+            <div class="row no-gutters align-items-center">
+              <div class="col-4">Replies</div>
+              <div class="col-8">Last update</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <div
         className="modal fade"
         id="exampleModal"
@@ -162,7 +196,12 @@ function Discussions() {
                   >
                     Cancel
                   </button>{" "}
-                  <button className="discussion-button" type="submit" name="submit" id="submit" >
+                  <button
+                    className="thread-button"
+                    type="submit"
+                    name="submit"
+                    id="submit"
+                  >
                     Submit
                   </button>
                 </div>
@@ -171,6 +210,7 @@ function Discussions() {
           </div>
         </div>
       </div>
+      
 
       {mapThread}
     </>
