@@ -57,17 +57,12 @@ function Nav() {
                   </Link>
                 </li>
               </ul>
-              <form className="d-flex">
-                <input
-                  className="form-control me-2"
-                  type="search"
-                  placeholder="Search"
-                  aria-label="Search"
-                />
-                <button className="btn btn-outline-success" type="submit">
-                  Search
-                </button>
-              </form>
+{/* 
+              <a class="navbar-brand" href="www.marquisepiton.com">
+      <img src="./img/sig.png" alt="" width="50" height="30" className="d-inline-block align-text-top"/>
+      
+    </a> */}
+              
             </div>
           </div>
         </nav>

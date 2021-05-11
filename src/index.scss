@@ -4,7 +4,8 @@ body {
   background-size: 200% 200%;  
   height: 100%;
   width: 100%;
-  animation: background 45s ease infinite;
+  animation: background 30s ease infinite;
+  background-repeat: none;
 }
 
 @keyframes background { 

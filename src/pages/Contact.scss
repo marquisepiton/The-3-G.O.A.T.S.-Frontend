@@ -1,6 +1,13 @@
-.card{
+.card-contact{
     width: 20rem;
-    margin-top: 25px;
+    margin-top:20px;
+    align-content: center;
+    color:black;
+    margin-bottom: 20px;
+    
+}
+.center{
+    align-content: center;
     
 }
 .footer-links a:active,.footer-links a:focus,.footer-links a:hover
@@ -62,11 +69,7 @@
 }
 .social-icons li.title
 {
-  margin-right:15px;
-  text-transform:uppercase;
-  color:#96a2b2;
-  font-weight:700;
-  font-size:13px
+
 }
 .social-icons a{
   background-color:#eceeef;
@@ -74,14 +77,15 @@
   font-size:16px;
   display:inline-block;
   line-height:44px;
-  width:44px;
+  width:70px;
   height:44px;
   text-align:center;
   margin-right:8px;
   border-radius:100%;
   -webkit-transition:all .2s linear;
   -o-transition:all .2s linear;
-  transition:all .2s linear
+  transition:all .5s linear;
+  align-content: center;
 }
 .social-icons a:active,.social-icons a:focus,.social-icons a:hover
 {
