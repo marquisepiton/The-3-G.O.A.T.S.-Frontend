@@ -6,7 +6,6 @@ import "mdb-ui-kit";
 import Nav from "../components/Nav";
 
 function Login() {
-
   //const location = useLocation();
   // ================================ useState===================================================
   const [formData, setFormData] = useState({});
@@ -15,18 +14,15 @@ function Login() {
   const [playerData, setPlayerData] = useState([]);
 
   //================================ Axios calls ==============================================
-  
+
   const handleLogin = (e) => {
-    setSignInData((previousState) =>({
+    setSignInData((previousState) => ({
       ...previousState,
       [e.target.name]: e.target.value,
-    }))
-    
-  }
+    }));
+  };
   const handleLoginsubmit = (e) => {
-    const apiUrl =
-      
-    e.preventDefault();
+    const apiUrl = e.preventDefault();
     axios
       .post(apiUrl, formData)
       .then((response) => {
@@ -44,7 +40,6 @@ function Login() {
       });
   };
 
-  
   const handleForm = (e) => {
     setFormData((previousState) => ({
       ...previousState,
@@ -112,222 +107,226 @@ function Login() {
   });
   // =================================================================================================
   return (
-    <div className="container">
-      <Nav />
-      <div className="yo">
-        <div className="card">
-          <ul className="nav  nav-justified mb-3 " id="ex1" role="tablist">
-            <li className="nav-item" role="presentation">
-              <a
-                className="nav-link active"
-                id="tab-login"
-                data-mdb-toggle="pill"
-                href="#pills-login"
-                role="tab"
-                aria-controls="pills-login"
-                aria-selected="true"
+    <div class="container">
+      <div class="row">
+        <div class="col"></div>
+        <div class="col">
+        {/* <img src='../img/logo.png'></img> */}
+          <div className="login-card">
+            <ul className="nav  nav-justified mb-3 " id="ex1" role="tablist">
+              <li className="nav-item" role="presentation">
+                <a
+                  className="nav-link active"
+                  id="tab-login"
+                  data-mdb-toggle="pill"
+                  href="#pills-login"
+                  role="tab"
+                  aria-controls="pills-login"
+                  aria-selected="true"
+                >
+                  Login
+                </a>
+              </li>
+              <li className="nav-item" role="presentation">
+                <a
+                  className="nav-link"
+                  id="tab-register"
+                  data-mdb-toggle="pill"
+                  href="#pills-register"
+                  role="tab"
+                  aria-controls="pills-register"
+                  aria-selected="false"
+                >
+                  Register
+                </a>
+              </li>
+            </ul>
+            <div className="tab-content">
+              <div
+                className="tab-pane fade show active "
+                id="pills-login"
+                role="tabpanel"
+                aria-labelledby="tab-login"
               >
-                Login
-              </a>
-            </li>
-            <li className="nav-item" role="presentation">
-              <a
-                className="nav-link"
-                id="tab-register"
-                data-mdb-toggle="pill"
-                href="#pills-register"
-                role="tab"
-                aria-controls="pills-register"
-                aria-selected="false"
-              >
-                Register
-              </a>
-            </li>
-          </ul>
-          <div className="tab-content">
-            <div
-              className="tab-pane fade show active "
-              id="pills-login"
-              role="tabpanel"
-              aria-labelledby="tab-login"
-            >
-              <form>
-                <h3>Login</h3>
-                <div className="mb-3">
-                  <label for="InputEmail1" className="form-label">
-                    Email address
-                  </label>
-                  <input
-                    type="email"
-                    className="form-control"
-                    id="InputEmail1"
-                    aria-describedby="emailHelp"
-                    onChange={handleLogin}
-                  ></input>
-                  <div id="emailHelp" className="form-text">
-                    We'll never share your email with anyone else.
-                  </div>
-                </div>
-                <div className="mb-3">
-                  <label for="InputPassword1" className="form-label">
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    className="form-control"
-                    id="InputPassword1"
-                    onChange={handleLogin}
-                  ></input>
-                </div>
-                <div className="mb-3 form-check">
-                  <input
-                    type="checkbox"
-                    className="form-check-input"
-                    id="exampleCheck1"
-                  ></input>
-                  <label className="form-check-label" for="exampleCheck1">
-                    Remember Me
-                  </label>
-                </div>
-                <button type="submit" className="btn btn-primary">
-                  Submit
-                </button>
-              </form>
-            </div>
-            <div
-              className="tab-pane fade"
-              id="pills-register"
-              role="tabpanel"
-              aria-labelledby="tab-register"
-            >
-              <form
-                className="row g-3 needs-validation"
-                novalidate
-                onSubmit={handleSubmit}
-              >
-                <h3>Register</h3>
-                <div className="col-md-4">
-                  <label for="registerUsername" className="form-label" name>
-                    Username
-                  </label>
-                  <input
-                    type="text"
-                    id="registerUsername"
-                    className="form-control"
-                    onChange={handleForm}
-                    name="username"
-                    required
-                  ></input>
-                  <div className="valid-feedback">Looks good!</div>
-                </div>
-                <div className="col-md-4">
-                  <label
-                    for="registerEmail"
-                    className="form-label"
-                    onChange={handleForm}
-                    value={formData || ""}
-                  >
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    id="registerEmail"
-                    className="form-control"
-                    onChange={handleForm}
-                    className="form-control"
-                    required
-                    name="email"
-                  ></input>
-                  <div className="valid-feedback">Looks good!</div>
-                </div>
-
-                <div className="col-md-4">
-                  <label
-                    className="form-label"
-                    for="registerPassword"
-                    value={formData || ""}
-                  >
-                    Password
-                  </label>
-                  <input
-                    type="password"
-                    id="registerPassword"
-                    className="form-control"
-                    onChange={handleForm}
-                    required
-                    name="password"
-                  />
-                </div>
-
-                <div className="col-md-3">
-                  <label for="validationCustom04" className="form-label">
-                    Team
-                  </label>
-                  <select
-                    className="form-select"
-                    id="validationCustom04"
-                    onChange={handleForm}
-                    name="favoriteteam"
-                    className="select"
-                    required
-                  >
-                    <option selected disabled value="">
-                      Choose...
-                    </option>
-                    <option>...</option>
-                    {teams}
-                  </select>
-                  <div className="invalid-feedback">
-                    Please select a Favorite Team
-                  </div>
-                </div>
-                <div className="col-md-3">
-                  <label for="validationCustom04" className="form-label">
-                    Player
-                  </label>
-                  <select
-                    className="form-select"
-                    id="validationCustom04"
-                    onChange={handleForm}
-                    name="fanof"
-                    className="select"
-                    required
-                  >
-                    <option selected disabled value="">
-                      Choose...
-                    </option>
-                    <option>...</option>
-                    {mapPlayers}
-                  </select>
-                  <div className="invalid-feedback">
-                    Please select a Favorite Player
-                  </div>
-                </div>
-                <div className="col-12">
-                  <div className="form-check">
-                    <input
-                      className="form-check-input"
-                      type="checkbox"
-                      value=""
-                      id="invalidCheck"
-                      required
-                    ></input>
-                    <label className="form-check-label" for="invalidCheck">
-                      Agree to terms and conditions
+                <form>
+                  <h3>Login</h3>
+                  <div className="mb-3">
+                    <label for="InputEmail1" className="form-label">
+                      Email address
                     </label>
-                    <div className="invalid-feedback">
-                      You must agree before submitting.
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="InputEmail1"
+                      aria-describedby="emailHelp"
+                      onChange={handleLogin}
+                    ></input>
+                    <div id="emailHelp" className="form-text">
+                      We'll never share your email with anyone else.
                     </div>
                   </div>
-                </div>
-                <div className="col-12">
-                  <button className="btn btn-primary" type="submit">
-                    Submit form
+                  <div className="mb-3">
+                    <label for="InputPassword1" className="form-label">
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      className="form-control"
+                      id="InputPassword1"
+                      onChange={handleLogin}
+                    ></input>
+                  </div>
+                  <div className="mb-3 form-check">
+                    <input
+                      type="checkbox"
+                      className="form-check-input"
+                      id="exampleCheck1"
+                    ></input>
+                    <label className="form-check-label" for="exampleCheck1">
+                      Remember Me
+                    </label>
+                  </div>
+                  <button type="submit" className="btn btn-primary">
+                    Submit
                   </button>
-                </div>
-              </form>
+                </form>
+              </div>
+              <div
+                className="tab-pane fade"
+                id="pills-register"
+                role="tabpanel"
+                aria-labelledby="tab-register"
+              >
+                <form
+                  className="row g-3 needs-validation"
+                  novalidate
+                  onSubmit={handleSubmit}
+                >
+                  <h3>Register</h3>
+                  <div className="col-md-4">
+                    <label for="registerUsername" className="form-label" name>
+                      Username
+                    </label>
+                    <input
+                      type="text"
+                      id="registerUsername"
+                      className="form-control"
+                      onChange={handleForm}
+                      name="username"
+                      required
+                    ></input>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+                  <div className="col-md-4">
+                    <label
+                      for="registerEmail"
+                      className="form-label"
+                      onChange={handleForm}
+                      value={formData || ""}
+                    >
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="registerEmail"
+                      className="form-control"
+                      onChange={handleForm}
+                      className="form-control"
+                      required
+                      name="email"
+                    ></input>
+                    <div className="valid-feedback">Looks good!</div>
+                  </div>
+
+                  <div className="col-md-4">
+                    <label
+                      className="form-label"
+                      for="registerPassword"
+                      value={formData || ""}
+                    >
+                      Password
+                    </label>
+                    <input
+                      type="password"
+                      id="registerPassword"
+                      className="form-control"
+                      onChange={handleForm}
+                      required
+                      name="password"
+                    />
+                  </div>
+
+                  <div className="col-md-3">
+                    <label for="validationCustom04" className="form-label">
+                      Team
+                    </label>
+                    <select
+                      className="form-select"
+                      id="validationCustom04"
+                      onChange={handleForm}
+                      name="favoriteteam"
+                      className="select"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choose...
+                      </option>
+                      <option>...</option>
+                      {teams}
+                    </select>
+                    <div className="invalid-feedback">
+                      Please select a Favorite Team
+                    </div>
+                  </div>
+                  <div className="col-md-3">
+                    <label for="validationCustom04" className="form-label">
+                      Player
+                    </label>
+                    <select
+                      className="form-select"
+                      id="validationCustom04"
+                      onChange={handleForm}
+                      name="fanof"
+                      className="select"
+                      required
+                    >
+                      <option selected disabled value="">
+                        Choose...
+                      </option>
+                      <option>...</option>
+                      {mapPlayers}
+                    </select>
+                    <div className="invalid-feedback">
+                      Please select a Favorite Player
+                    </div>
+                  </div>
+                  <div className="col-12">
+                    <div className="form-check">
+                      <input
+                        className="form-check-input"
+                        type="checkbox"
+                        value=""
+                        id="invalidCheck"
+                        required
+                      ></input>
+                      <label className="form-check-label" for="invalidCheck">
+                        Agree to terms and conditions
+                      </label>
+                      <div className="invalid-feedback">
+                        You must agree before submitting.
+                      </div>
+                    </div>
+                  </div>
+                  <div className="col-12">
+                    <button className="btn btn-primary" type="submit">
+                      Submit form
+                    </button>
+                  </div>
+                </form>
+              </div>
             </div>
           </div>
+          <div class="col"></div>
         </div>
       </div>
     </div>

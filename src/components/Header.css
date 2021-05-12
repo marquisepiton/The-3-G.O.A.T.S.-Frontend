@@ -1,12 +1,7 @@
-.about{
-    
-}
-.home{
-    
-   
-}
-.contact{
-    
-}
+.head{
+  background: #000;
 
 
+opacity: 0.4;
+height: 200px;
+}

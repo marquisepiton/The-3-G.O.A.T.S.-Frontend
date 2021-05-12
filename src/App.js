@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Home from "./pages/Home";
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
@@ -8,12 +8,22 @@ import Contact from "./pages/Contact"
 import About from "./pages/About";
 import Stats from "./pages/Stats";
 import Discussions from "./pages/Discussions";
+import Nav from './components/Nav';
+import Footer from './components/Footer';
 // import * as mdb from "mdb-ui-kit"; // lib
 
 function App() {
   return (
-    <div className="container">
+<div className='app'>
+
+
+
+   
+    
+    
       <Router>
+      <Nav />
+
         <Switch>
           <Route path="/login">
             <Login login />
@@ -49,7 +59,9 @@ function App() {
             <About About />
           </Route>
         </Switch>
+        <Footer/>
       </Router>
+     
     </div>
   );
 }
