@@ -22,11 +22,12 @@ function Contact() {
     <div class="col">
       
     </div>
+    
     <div class="col">
      <div className="center">
       <div className="text-center">
         <div className="container">
-          <div className="card-contact" style={{ width: "18rem" }}>
+          <div className="card-contact" style={{ width: "20rem" }}>
             <img
               src={"./img/" + Data.contact[1].img}
               className="card-img-top"

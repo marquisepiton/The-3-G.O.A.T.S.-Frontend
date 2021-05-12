@@ -21,9 +21,7 @@ function Footer() {
             <div className="col-xs-6 col-md-3">
               <h6>Contact Me</h6>
               <ul className="footer-links">
-                <li>
-                  <a href="www.gmail.com">pitonmarquise@gmail.com</a>
-                </li>
+                
                 <li>
                   <a href="https://www.linkedin.com/in/marquisepiton/">
                     Linkedln
@@ -75,7 +73,7 @@ function Footer() {
                 <Link to={"/contact"}>
                   {" "}
                   <li>
-                    <a>Contact</a>
+                    <a>Contacts</a>
                   </li>
                 </Link>
                 <Link to={"/about"}>
