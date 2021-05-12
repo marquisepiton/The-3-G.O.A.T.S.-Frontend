@@ -1,5 +1,5 @@
 import React from "react";
-import "./Card.css";
+import "./Card.scss";
 
 function Card(props) {
   const card = props.data[1].card.map((data, index) => {

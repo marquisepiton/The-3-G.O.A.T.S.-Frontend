@@ -10,7 +10,7 @@
 
     "contact": [
 
-        {"header":"Contact Me"},
+        {"header":"Contacts"},
         {"img":"me.jpg"},
         {"social": [
         {"name":"Email", "link":"pitonmarquise@gmail.com"},

@@ -105,7 +105,7 @@ function Discussions() {
         New Thread
       </button>
 
-      <div class="card-header pl-0 pr-0">
+      <div   class="card-header pl-0 pr-0">
         <div class="row no-gutters w-100 align-items-center">
           <div class="col ml-3">Topics</div>
           <div class="col-4 text-muted">
@@ -124,7 +124,7 @@ function Discussions() {
         aria-labelledby="exampleModalLabel"
         aria-hidden="true"
       >
-        <div className="modal-dialog">
+        <div style={{ color: "black" }} className="modal-dialog">
           <div className="modal-content">
             <div className="modal-header">
               <h5 className="modal-title" id="exampleModalLabel">

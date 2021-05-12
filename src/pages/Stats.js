@@ -146,6 +146,8 @@ function Stats() {
 
   return (
     <div>
+    <div className="d-lg-none">ONLY VISIBLE ON DESKTOP</div>
+    <div className="d-none d-lg-block ">
       <Header data={Data.players} />
       <div className="row">
         <div className="col">
@@ -334,8 +336,14 @@ function Stats() {
           </div>
         </div>
         </div>
+        <div className="col">
 
-        <div className="col"></div>
+
+
+        </div>
+
+        
+      </div>
       </div>
     </div>
   );

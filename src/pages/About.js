@@ -1,9 +1,8 @@
 import React from 'react';
-import Nav from '../components/Nav';
 import Header from "../components/Header";
-import Footer from "../components/Footer";
 import Data from "../data/data.json";
 import "../components/Header.css";
+import "./About.scss";
 
 
 function About() {
@@ -21,7 +20,7 @@ function About() {
     </div>
     <div class="col">
 
-    <img src="../img/logo.png"/>
+  <img className="logo" src="../img/logo.png" />
     <p>{Data.about[1].paragraph}</p>
         <p>{Data.about[2].paragraph}</p>
     </div>

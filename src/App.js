@@ -4,25 +4,19 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import Contact from "./pages/Contact"
+import Contact from "./pages/Contact";
 import About from "./pages/About";
 import Stats from "./pages/Stats";
 import Discussions from "./pages/Discussions";
-import Nav from './components/Nav';
-import Footer from './components/Footer';
+import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 // import * as mdb from "mdb-ui-kit"; // lib
 
 function App() {
   return (
-<div className='app'>
-
-
-
-   
-    
-    
+    <div className="app">
       <Router>
-      <Nav />
+        <Nav />
 
         <Switch>
           <Route path="/login">
@@ -30,7 +24,7 @@ function App() {
           </Route>
         </Switch>
         <Switch>
-          <Route exact path={["/home","/"]}>
+          <Route exact path={["/home", "/"]}>
             <Home home />
           </Route>
         </Switch>
@@ -59,9 +53,8 @@ function App() {
             <About About />
           </Route>
         </Switch>
-        <Footer/>
+        <Footer />
       </Router>
-     
     </div>
   );
 }

@@ -109,7 +109,7 @@ function Login() {
   return (
     <div class="container">
       <div class="row">
-        <div class="col"></div>
+       
         <div class="col">
         {/* <img src='../img/logo.png'></img> */}
           <div className="login-card">
